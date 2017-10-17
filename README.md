@@ -1,4 +1,4 @@
-# EditorBrowser v0.1
+#  Browzar v0.1
 PHP file browser and syntax-highlighting text editor
 Uses Ace.js on top of php
 
