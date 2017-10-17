@@ -1,0 +1,8 @@
+#editor {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    bottom: 0;
+    width: 85%;
+	resize: horizontal;
+}

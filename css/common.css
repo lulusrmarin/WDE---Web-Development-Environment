@@ -1,0 +1,71 @@
+/* Kill margin and set body preferences */
+body {
+	font-family: Verdana, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+ul { margin: 0; padding: 0; }
+li { margin: 0; padding: 0; }
+
+/* Some font classes */
+.u { text-decoration: underline; }
+.b { font-weight: bold; }
+.i { font-style: italic; }
+.n { font-weight: normal; }
+ 
+ /* Pretty much what it sounds like */
+.center { text-align: center; }
+.right { text-align: right; }
+.left { text-align: left; }
+
+/* Div positioning stuff */
+.block { display: block; }
+.block-inl { display: inline-block; }
+.fifth { display: inline-block; width: 20%; }
+.middle { vertical-align: middle; }
+
+/* Set font size classes */
+.txt-xsmall { font-size: 8px; }
+.txt-small { font-size: 10px; }
+.txt-medium { font-size: 12px; }
+.txt-large { font-size: 14px; }
+.txt-xlarge { font-size: 16px; }
+
+/* Default colors */
+/* BG */
+.bgc-1 { background-color: #003B6C; }
+.bgc-2 { background-color: #004C8C; }
+.bgc-3 { background-color: #7AC3FF; }
+.bgc-4 { background-color: #AAD8FF; }
+.bgg-e { background-color: #EEE; }
+/* Font */
+.clr-b{ color: black; }
+.clr-w{ color: white; }
+.clr-red{ color: red; }
+.clr-1 { color: #003B6C; }
+.clr-2 { color: #D33F00; }
+
+/* Helpful classes for rounding corners */
+.round { border-radius: 5px; }
+.round-ur { border-top-right-radius: 5px; }
+.round-ul { border-top-left-radius: 5px; }
+.round-bl { border-bottom-left-radius: 5px; }
+.round-br { border-bottom-left-radius: 5px; }
+
+.pad { padding: 5px; }
+.pad-left { padding-left: 10px; }
+.brdr-bottom { border-bottom: solid 1px #AAA; }
+.hidden { display: none; }
+.bpx1 { border: solid 1px black; }
+.cursor-pointer { cursor: pointer; }
+.full { width: 100%; }
+
+.overflow-scroll { overflow-y: scroll;
+	max-height: 100vh; }
+.abs-l-d-u {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	top: 0;
+}
