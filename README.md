@@ -13,6 +13,7 @@ Features:
 * Recognizes some hotkeys (ctrl+s to save, ctrl+/ to comment block etc...)
 
 Future Todo's:
+* Delete Files
 * Sync up with Github API
 * Add more hotkey support
 * Better security
