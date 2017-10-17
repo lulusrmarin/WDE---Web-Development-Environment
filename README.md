@@ -12,7 +12,7 @@ Features:
 * Takes a URL GET param for password to control access
 * Recognizes some hotkeys (ctrl+s to save, ctrl+/ to comment block etc...)
 
-* Future Todo's
+Future Todo's:
 * Sync up with Github API
 * Add more hotkey support
 * Better security
