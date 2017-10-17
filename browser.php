@@ -177,7 +177,7 @@ $themes = ['ambiance','chaos','chrome','clouds','clouds_midnight','cobalt','crim
     function save_file( fn, text ) {
         console.log(fn);
         $('document').ready( function() {
-            $.post( "browser.php?pw=triple3", {
+            $.post( "browser.php?pw=password", {
                 fn: fn,
                 save: true,
                 text: text
