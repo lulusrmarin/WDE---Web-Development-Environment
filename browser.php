@@ -82,6 +82,7 @@ if( $_POST ) {
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>	
     <title><?= $app->name ?> <?= $app->version ?></title>
 </head>
 <body>
@@ -122,9 +123,6 @@ if( $_POST ) {
 </div>
 </body>
 </html>
-
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>
 <script>
 	// Fix to automatically suppoort all available types
     var supported_types = [ 'css','html','json','php' ];
