@@ -31,5 +31,5 @@ Future Todo's:
 * Two versions, inline and modular
 
 Notes:
-This file will have trouble creating/deleting files in a directory that is set to chmod 0755
+This file will have trouble creating/deleting files in a directory that isn't set to chmod 0755 or 0777
 The two css files are necessary to keep the page orderly, but will probably be included in an inline version in the future
