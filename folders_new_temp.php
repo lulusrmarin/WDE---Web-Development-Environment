@@ -53,12 +53,16 @@
 </head>
 <body>
 	<div ng-app="folders" ng-controller='ctrl'>
-	    <tree dir="root"></tree>
+	    
+	    <tree dir="root" depth="0" ng-init="getDirectoryInfo( '/', 'root' )"></tree>
 	</div>
 </body>
 </html>
 
 <script>
+    // Standard Marin Library Bullshit
+    function cl(s) { console.log(s); }
+
     var folders = angular.module( 'folders', [] );
     folders.controller( 'ctrl', function( $scope, $http ){ 
         $scope.node = {};
@@ -68,25 +72,38 @@
                 function( response ){
                     console.log( "Assigning to " + scopeVar)
                     console.log( response.data );
-                    $scope[ scopeVar ] = response.data.fileList;
-            });            
+                    $scope.node[ scopeVar ] = response.data.fileList;
+            });           
+            cl( $scope );
         }
         
-        $scope.getDirectoryInfo( '/', 'root' );
+        $scope.collapse = function( dir ) {
+            delete $scope.node[ dir ];
+        }
+        
+        $scope.test = function(){ console.log( 'test fire' )};
     });
     
     folders.directive('tree', function() {
     	return{
+    	    controller: 'ctrl',
     		restrict: 'E',
-    		template: '<div ng-repeat="( filename, info ) in dir track by $index">'
-                + ' <div class="w3-border">'
-                + '     <i class="fa fa-plus-square pointer w3-text-green" aria-hidden="true" ng-click="getDirectoryInfo( filename, node[ info.path ] )" ng-if="info.directory"></i>'
+    		template: '<div ng-repeat="( filename, info ) in $parent.node[dir] track by $index">'
+                + ' <div class="w3-border-bottom block-inl" style="padding-left: {{16 * depth}}px;">'
+                + '     <i class="fa fa-plus-square pointer w3-text-green" aria-hidden="true" ng-click="getDirectoryInfo(info.path, info.path)" ng-if="info.directory && !node[info.path]"></i>'
+                + '     <i class="fa fa-minus-square pointer w3-text-red" aria-hidden="true" ng-click="collapse(info.path)" ng-if="info.directory && node[info.path]"></i>'
+                + '     <i class="fa fa-folder w3-text-khaki pointer aria-hidden="true" ng-click="getDirectoryInfo(info.path, info.path)" ng-if="info.directory && !node[info.path]"></i>'
+                + '     <i class="fa fa-folder-open w3-text-khaki pointer aria-hidden="true" ng-if="info.directory && node[info.path]"></i>'
+                + '     <i class="fa fa-file w3-text-blue pointer aria-hidden="true" ng-click="collapse( info.path )" ng-if="!info.directory"></i>'
+                + '     <i class="fa fa-pencil w3-text-yellow pointer aria-hidden="true" ng-click="collapse( info.path )" ng-if="!info.directory"></i>'
                 + '     {{filename}}'
 	            + ' </div>'
-                //+ ' <tree dir="info.path">'	            
+	            + ' <div class="w3-border-bottom block-inl">{{info.permissions}}</div>'
+                + ' <tree dir="{{info.path}}" depth="depth + 1"></tree>'	 
 	            + '</div>',
     		scope: {
-    			dir: '='
+    			dir: '@',
+    			depth: '='
     		}
     	};
     });     
