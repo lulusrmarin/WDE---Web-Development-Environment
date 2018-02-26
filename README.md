@@ -1,4 +1,4 @@
-#  Browzar v0.3
+#  WDE Web Development Environment 0.9
 PHP file browser and syntax-highlighting text editor
 Uses Ace.js on top of PHP/AJAX using Angular
 
@@ -8,28 +8,30 @@ Features:
 * Ability to select all themes from Ace.JS at will
 * Saves files
 * Creates new files
+* Creates new folders with chmod option
 * Deletes FIles
-* Browses directory structure
-* Takes a URL GET param for password to control access
+* Loads a tree/nodes of directories automatically focused on where the wde.php file lives
 * Recognizes some hotkeys (ctrl+s to save, ctrl+/ to comment block etc...)
+* Loads tabs of multiple files
+* Much better looking.  Only has a dark theme for now
 
 Changelog
-* Re-Enginered with Angular as opposed to JQuery for code simplicity
-* Added ability to delete files
+* Rewritten from the gorund up to support tabs, new folders, and directory tree structure
+* Added a status bar at the bottom of the page
 
 Future Todo's:
-* Use a more Angular appropriate way to bind Ctrl + S hotkey
-* Rmdir functionality
-* Auotmatically support all available syntax highlighting types by default
-* Minor optimizations
-* Add directory tree view instead of entering/exiting directories
-* Tabs with namespaced editors to work on multiple files at once
-* Sync up with Github API
-* Add more hotkey support
-* Better security
-* Way more other, better features
-* Two versions, inline and modular
+Bugs:
+* There is currently a bug where files are not saving in the intended directory.  I have a fix but it's not in this version
+* Tippy is wired in but not well syced with Angular.  As with above probably needs a directive to sync
 
-Notes:
-This file will have trouble creating/deleting files in a directory that isn't set to chmod 0755 or 0777
-The two css files are necessary to keep the page orderly, but will probably be included in an inline version in the future
+Features
+* Re-add GET param password feature
+* There is a bug where Angular is not binding the status messages returned by the API since they're being accessed by Ace.  This needs to be implemented in a better way
+* Currently testing and experimenting with Github API to commit files, push/pull/etc directly from WDE
+* Creating a one-file build for portability as well as a modular build of components
+* Adding ability to work with Composer to automatically install scripts
+* Add WebSSH if possible
+* Make more modular, possibly switch from Angular to Vue
+* Adding ability to copy/cut/paste files, as well as drag and drop abilities
+* Add more hotkeys
+* Add a JS MySQL interface
